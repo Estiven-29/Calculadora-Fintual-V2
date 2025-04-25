@@ -1,0 +1,134 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 22%;
+    --ring: 212 70% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 47% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 47% 15%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .light-mode {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-financial-accent/30 selection:text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+  
+  .financial-card {
+    @apply bg-card/60 backdrop-blur-lg rounded-2xl border border-border shadow-xl transition-all duration-300 hover:shadow-financial-accent/10;
+  }
+  
+  .btn-primary {
+    @apply bg-financial-accent text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:bg-financial-accent/90 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-financial-accent disabled:active:scale-100;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:bg-secondary/80 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-secondary disabled:active:scale-100;
+  }
+  
+  .input-field {
+    @apply bg-input border border-border text-foreground px-4 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-financial-accent/30 transition-all duration-300 placeholder:text-muted-foreground;
+  }
+
+  .text-shimmer {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground/80 to-foreground/90 animate-pulse-soft;
+  }
+  
+  .page-transition {
+    @apply animate-fade-in-up;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 text-sidebar-foreground/80 rounded-lg hover:bg-sidebar-accent transition-all duration-300;
+  }
+
+  .nav-item.active {
+    @apply bg-sidebar-primary/20 text-sidebar-primary font-medium;
+  }
+}
